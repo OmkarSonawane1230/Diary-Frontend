@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Director - Farmer Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🥛</div>
+                    <h2 class="logo-text">Dairy Director</h2>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="farmer.html" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="openModal('bankDetailsModal')">
+                        <span class="nav-icon">🏦</span>
+                        <span class="nav-text">Bank Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="openModal('personalInfoModal')">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Personal Info</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="openModal('pendingPaymentsModal')">
+                        <span class="nav-icon">💰</span>
+                        <span class="nav-text">Pending Payments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        <span class="nav-text">Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🆘</span>
+                    <span class="nav-text">Support</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <div class="greeting">
+                        <h1>Farmer Dashboard 👨‍🌾</h1>
+                        <p class="subtitle">Manage your dairy farm operations</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span id="currentDate">Thur, 16th April, 2020</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40x40/87CEEB/FFFFFF?text=F" alt="Farmer" class="profile-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Farmer Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="content-grid">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary btn-large" onclick="openModal('addCowModal')">
+                                        <span>🐄</span>
+                                        Add New Cow
+                                    </button>
+                                    <button class="btn btn-secondary btn-large" onclick="openModal('recordMilkModal')">
+                                        <span>🥛</span>
+                                        Record Milk Production
+                                    </button>
+                                    <button class="btn btn-outline btn-large" onclick="openModal('scheduleVetModal')">
+                                        <span>🏥</span>
+                                        Schedule Vet Visit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cow Inventory -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Cow Inventory</h3>
+                                <span class="badge badge-primary">24 Total</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Cow ID</th>
+                                                <th>Name</th>
+                                                <th>Breed</th>
+                                                <th>Age</th>
+                                                <th>Status</th>
+                                                <th>Daily Milk (L)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#001</td>
+                                                <td>Bessie</td>
+                                                <td>Holstein</td>
+                                                <td>4 years</td>
+                                                <td><span class="badge badge-success">Healthy</span></td>
+                                                <td>28.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#002</td>
+                                                <td>Daisy</td>
+                                                <td>Jersey</td>
+                                                <td>3 years</td>
+                                                <td><span class="badge badge-success">Healthy</span></td>
+                                                <td>22.3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#003</td>
+                                                <td>Moobert</td>
+                                                <td>Guernsey</td>
+                                                <td>5 years</td>
+                                                <td><span class="badge badge-warning">Check-up Due</span></td>
+                                                <td>25.1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#004</td>
+                                                <td>Bella</td>
+                                                <td>Holstein</td>
+                                                <td>2 years</td>
+                                                <td><span class="badge badge-success">Healthy</span></td>
+                                                <td>30.2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#005</td>
+                                                <td>Luna</td>
+                                                <td>Jersey</td>
+                                                <td>6 years</td>
+                                                <td><span class="badge badge-danger">Needs Attention</span></td>
+                                                <td>18.7</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Farm Statistics -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Farm Statistics</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="stat-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-value">24</div>
+                                        <div class="stat-label">Total Cows</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">580L</div>
+                                        <div class="stat-label">Daily Production</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">22</div>
+                                        <div class="stat-label">Healthy Cows</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">2</div>
+                                        <div class="stat-label">Need Attention</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activities -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Recent Activities</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">🥛</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">Milk collection completed</p>
+                                            <p class="activity-time">2 hours ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">🏥</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">Vet visit scheduled for Luna</p>
+                                            <p class="activity-time">4 hours ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">🐄</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">New cow Bella added to inventory</p>
+                                            <p class="activity-time">1 day ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">📊</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">Weekly report generated</p>
+                                            <p class="activity-time">2 days ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weather & Alerts -->
+                        <div class="card alert-card">
+                            <div class="card-header">
+                                <h3>Farm Alerts</h3>
+                                <span class="alert-icon">🌤️</span>
+                            </div>
+                            <div class="card-content alert-content">
+                                <div class="weather-info">
+                                    <div class="weather-icon">☀️</div>
+                                    <div class="weather-details">
+                                        <p class="weather-temp">22°C</p>
+                                        <p class="weather-desc">Perfect weather for grazing</p>
+                                    </div>
+                                </div>
+                                <div class="alert-message">
+                                    <p>Luna needs veterinary attention. Schedule appointment soon.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Cow Modal -->
+    <div class="modal-overlay" id="addCowModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Cow</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addCowForm">
+                    <div class="form-group">
+                        <label class="form-label">Cow Name</label>
+                        <input type="text" class="form-input" name="cowName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Breed</label>
+                        <select class="form-select" name="breed" required>
+                            <option value="">Select Breed</option>
+                            <option value="Holstein">Holstein</option>
+                            <option value="Jersey">Jersey</option>
+                            <option value="Guernsey">Guernsey</option>
+                            <option value="Ayrshire">Ayrshire</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Age (years)</label>
+                        <input type="number" class="form-input" name="age" min="1" max="15" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Health Status</label>
+                        <select class="form-select" name="healthStatus" required>
+                            <option value="">Select Status</option>
+                            <option value="Healthy">Healthy</option>
+                            <option value="Check-up Due">Check-up Due</option>
+                            <option value="Needs Attention">Needs Attention</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="addCowForm" class="btn btn-primary">Add Cow</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Record Milk Modal -->
+    <div class="modal-overlay" id="recordMilkModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Record Milk Production</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="recordMilkForm">
+                    <div class="form-group">
+                        <label class="form-label">Select Cow</label>
+                        <select class="form-select" name="cowId" required>
+                            <option value="">Select Cow</option>
+                            <option value="001">Bessie (#001)</option>
+                            <option value="002">Daisy (#002)</option>
+                            <option value="003">Moobert (#003)</option>
+                            <option value="004">Bella (#004)</option>
+                            <option value="005">Luna (#005)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Milk Quantity (Liters)</label>
+                        <input type="number" class="form-input" name="quantity" step="0.1" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Collection Time</label>
+                        <select class="form-select" name="collectionTime" required>
+                            <option value="">Select Time</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Evening">Evening</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Quality Notes</label>
+                        <textarea class="form-input form-textarea" name="notes" placeholder="Any quality observations..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="recordMilkForm" class="btn btn-primary">Record Production</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Vet Modal -->
+    <div class="modal-overlay" id="scheduleVetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Schedule Vet Visit</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="scheduleVetForm">
+                    <div class="form-group">
+                        <label class="form-label">Select Cow</label>
+                        <select class="form-select" name="cowId" required>
+                            <option value="">Select Cow</option>
+                            <option value="001">Bessie (#001)</option>
+                            <option value="002">Daisy (#002)</option>
+                            <option value="003">Moobert (#003)</option>
+                            <option value="004">Bella (#004)</option>
+                            <option value="005">Luna (#005)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Visit Date</label>
+                        <input type="date" class="form-input" name="visitDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Visit Type</label>
+                        <select class="form-select" name="visitType" required>
+                            <option value="">Select Type</option>
+                            <option value="Routine Checkup">Routine Checkup</option>
+                            <option value="Vaccination">Vaccination</option>
+                            <option value="Treatment">Treatment</option>
+                            <option value="Emergency">Emergency</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-input form-textarea" name="notes" placeholder="Describe the reason for visit..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="scheduleVetForm" class="btn btn-primary">Schedule Visit</button>
+            </div>
+        </div>
+    <!-- Bank Details Modal -->
+    <div class="modal-overlay" id="bankDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Bank Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label class="form-label">Bank Name</label>
+                            <p class="form-value">First National Bank</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Account Number</label>
+                            <p class="form-value">****-****-****-1234</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Account Holder</label>
+                            <p class="form-value">Demo Farmer</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Routing Number</label>
+                            <p class="form-value">123456789</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Account Type</label>
+                            <p class="form-value">Checking Account</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Close</button>
+                <button type="button" class="btn btn-primary">Update Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personal Info Modal -->
+    <div class="modal-overlay" id="personalInfoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Personal Information</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="personalInfoForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" name="fullName" value="Demo Farmer">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" name="email" value="farmer@demo.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" name="phone" value="+1-555-0101">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-input form-textarea" name="address">123 Farm Road, Rural County, State 12345</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Farm Size (acres)</label>
+                        <input type="number" class="form-input" name="farmSize" value="150">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="personalInfoForm" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Payments Modal -->
+    <div class="modal-overlay" id="pendingPaymentsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Pending Payments</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Feed & Supplies</h4>
+                        <span class="badge badge-warning">Pending</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Quantity</th>
+                                        <th>Amount</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Premium Cow Feed</td>
+                                        <td>500 lbs</td>
+                                        <td>$245.00</td>
+                                        <td>Dec 25, 2024</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hay Bales</td>
+                                        <td>20 bales</td>
+                                        <td>$180.00</td>
+                                        <td>Dec 30, 2024</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mineral Supplements</td>
+                                        <td>10 bags</td>
+                                        <td>$95.00</td>
+                                        <td>Jan 5, 2025</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veterinary Supplies</td>
+                                        <td>1 kit</td>
+                                        <td>$125.00</td>
+                                        <td>Jan 10, 2025</td>
+                                        <td><span class="badge badge-danger">Overdue</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-3">
+                            <div class="stat-grid">
+                                <div class="stat-item">
+                                    <div class="stat-value">$645.00</div>
+                                    <div class="stat-label">Total Pending</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">4</div>
+                                    <div class="stat-label">Pending Items</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Close</button>
+                <button type="button" class="btn btn-primary">Make Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Links -->
+    <div class="auth-links">
+        <a href="login.html" class="auth-link">Login</a>
+        <a href="registration.html" class="auth-link">Register</a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/farmer.js"></script>
+</body>
+</html>

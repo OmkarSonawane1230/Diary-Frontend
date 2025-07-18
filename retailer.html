@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Director - Retailer Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🥛</div>
+                    <h2 class="logo-text">Dairy Director</h2>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="retailer.html" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📦</span>
+                        <span class="nav-text">Product Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🛒</span>
+                        <span class="nav-text">Orders</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Sales Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text">Customers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        <span class="nav-text">Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🆘</span>
+                    <span class="nav-text">Support</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <div class="greeting">
+                        <h1>Retailer Dashboard 🏪</h1>
+                        <p class="subtitle">Manage your dairy product inventory and orders</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span id="currentDate">Thur, 16th April, 2020</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40x40/87CEEB/FFFFFF?text=R" alt="Retailer" class="profile-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Retailer Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="content-grid">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary btn-large" onclick="openModal('newOrderModal')">
+                                        <span>📦</span>
+                                        Place New Order
+                                    </button>
+                                    <button class="btn btn-secondary btn-large" onclick="openModal('updateStockModal')">
+                                        <span>📊</span>
+                                        Update Stock
+                                    </button>
+                                    <button class="btn btn-outline btn-large" onclick="openModal('salesReportModal')">
+                                        <span>📈</span>
+                                        Sales Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Inventory -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Product Inventory</h3>
+                                <button class="btn btn-small btn-primary" onclick="refreshInventory()">Refresh</button>
+                            </div>
+                            <div class="card-content">
+                                <div class="inventory-grid">
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <h4 class="product-name">Whole Milk</h4>
+                                            <span class="product-icon">🥛</span>
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-detail">
+                                                <span class="product-label">Stock Level:</span>
+                                                <span class="product-value stock-high">245 units</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Price:</span>
+                                                <span class="product-value">$3.99/L</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Expiry:</span>
+                                                <span class="product-value">5 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <h4 class="product-name">2% Milk</h4>
+                                            <span class="product-icon">🥛</span>
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-detail">
+                                                <span class="product-label">Stock Level:</span>
+                                                <span class="product-value stock-medium">89 units</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Price:</span>
+                                                <span class="product-value">$3.79/L</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Expiry:</span>
+                                                <span class="product-value">4 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <h4 class="product-name">Skim Milk</h4>
+                                            <span class="product-icon">🥛</span>
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-detail">
+                                                <span class="product-label">Stock Level:</span>
+                                                <span class="product-value stock-low">23 units</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Price:</span>
+                                                <span class="product-value">$3.59/L</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Expiry:</span>
+                                                <span class="product-value">3 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <h4 class="product-name">Heavy Cream</h4>
+                                            <span class="product-icon">🍶</span>
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-detail">
+                                                <span class="product-label">Stock Level:</span>
+                                                <span class="product-value stock-high">156 units</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Price:</span>
+                                                <span class="product-value">$5.99/L</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Expiry:</span>
+                                                <span class="product-value">7 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <h4 class="product-name">Cheese</h4>
+                                            <span class="product-icon">🧀</span>
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-detail">
+                                                <span class="product-label">Stock Level:</span>
+                                                <span class="product-value stock-medium">67 units</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Price:</span>
+                                                <span class="product-value">$8.99/kg</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Expiry:</span>
+                                                <span class="product-value">14 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-card">
+                                        <div class="product-header">
+                                            <h4 class="product-name">Butter</h4>
+                                            <span class="product-icon">🧈</span>
+                                        </div>
+                                        <div class="product-details">
+                                            <div class="product-detail">
+                                                <span class="product-label">Stock Level:</span>
+                                                <span class="product-value stock-low">12 units</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Price:</span>
+                                                <span class="product-value">$4.49/pack</span>
+                                            </div>
+                                            <div class="product-detail">
+                                                <span class="product-label">Expiry:</span>
+                                                <span class="product-value">21 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Sales Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Today's Sales</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="stat-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-value">$1,247</div>
+                                        <div class="stat-label">Total Revenue</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">89</div>
+                                        <div class="stat-label">Items Sold</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">34</div>
+                                        <div class="stat-label">Transactions</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">$36.68</div>
+                                        <div class="stat-label">Avg. Sale</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Orders -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Recent Orders</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Product</th>
+                                                <th>Quantity</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#ORD001</td>
+                                                <td>Whole Milk</td>
+                                                <td>50 units</td>
+                                                <td><span class="badge badge-success">Delivered</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD002</td>
+                                                <td>Cheese</td>
+                                                <td>25 units</td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD003</td>
+                                                <td>Butter</td>
+                                                <td>30 units</td>
+                                                <td><span class="badge badge-primary">In Transit</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>#ORD004</td>
+                                                <td>2% Milk</td>
+                                                <td>40 units</td>
+                                                <td><span class="badge badge-success">Delivered</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Low Stock Alert -->
+                        <div class="card alert-card">
+                            <div class="card-header">
+                                <h3>Stock Alerts</h3>
+                                <span class="alert-icon">⚠️</span>
+                            </div>
+                            <div class="card-content alert-content">
+                                <div class="alert-message">
+                                    <p><strong>Low Stock Warning:</strong></p>
+                                    <p>• Skim Milk: 23 units remaining</p>
+                                    <p>• Butter: 12 units remaining</p>
+                                    <p>Consider placing new orders soon!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Order Modal -->
+    <div class="modal-overlay" id="newOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Place New Order</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="newOrderForm">
+                    <div class="form-group">
+                        <label class="form-label">Product</label>
+                        <select class="form-select" name="product" required>
+                            <option value="">Select Product</option>
+                            <option value="whole-milk">Whole Milk</option>
+                            <option value="2-milk">2% Milk</option>
+                            <option value="skim-milk">Skim Milk</option>
+                            <option value="heavy-cream">Heavy Cream</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="butter">Butter</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Quantity</label>
+                        <input type="number" class="form-input" name="quantity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Supplier</label>
+                        <select class="form-select" name="supplier" required>
+                            <option value="">Select Supplier</option>
+                            <option value="dairy-farm-a">Dairy Farm A</option>
+                            <option value="dairy-farm-b">Dairy Farm B</option>
+                            <option value="local-creamery">Local Creamery</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Delivery Date</label>
+                        <input type="date" class="form-input" name="deliveryDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Special Instructions</label>
+                        <textarea class="form-input form-textarea" name="instructions" placeholder="Any special delivery instructions..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="newOrderForm" class="btn btn-primary">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Stock Modal -->
+    <div class="modal-overlay" id="updateStockModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Update Stock</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="updateStockForm">
+                    <div class="form-group">
+                        <label class="form-label">Product</label>
+                        <select class="form-select" name="product" required>
+                            <option value="">Select Product</option>
+                            <option value="whole-milk">Whole Milk</option>
+                            <option value="2-milk">2% Milk</option>
+                            <option value="skim-milk">Skim Milk</option>
+                            <option value="heavy-cream">Heavy Cream</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="butter">Butter</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Current Stock</label>
+                        <input type="number" class="form-input" name="currentStock" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">New Stock Level</label>
+                        <input type="number" class="form-input" name="newStock" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Reason for Update</label>
+                        <select class="form-select" name="reason" required>
+                            <option value="">Select Reason</option>
+                            <option value="new-delivery">New Delivery</option>
+                            <option value="sales">Sales</option>
+                            <option value="expired">Expired Products</option>
+                            <option value="damaged">Damaged Products</option>
+                            <option value="inventory-count">Inventory Count</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="updateStockForm" class="btn btn-primary">Update Stock</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Report Modal -->
+    <div class="modal-overlay" id="salesReportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Generate Sales Report</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="salesReportForm">
+                    <div class="form-group">
+                        <label class="form-label">Report Period</label>
+                        <select class="form-select" name="period" required>
+                            <option value="">Select Period</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="customDateRange" style="display: none;">
+                        <label class="form-label">From Date</label>
+                        <input type="date" class="form-input" name="fromDate">
+                        <label class="form-label">To Date</label>
+                        <input type="date" class="form-input" name="toDate">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Report Type</label>
+                        <select class="form-select" name="reportType" required>
+                            <option value="">Select Type</option>
+                            <option value="summary">Sales Summary</option>
+                            <option value="detailed">Detailed Report</option>
+                            <option value="product-wise">Product-wise Analysis</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="salesReportForm" class="btn btn-primary">Generate Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Links -->
+    <div class="auth-links">
+        <a href="login.html" class="auth-link">Login</a>
+        <a href="registration.html" class="auth-link">Register</a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/retailer.js"></script>
+</body>
+</html>

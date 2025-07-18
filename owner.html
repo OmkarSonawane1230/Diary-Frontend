@@ -1,74 +1,489 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Farmers Entries</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Director - Owner Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
 </head>
-
 <body>
-  <div class="container">
-    <div class="left-section">
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🥛</div>
+                    <h2 class="logo-text">Dairy Director</h2>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="owner.html" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🏭</span>
+                        <span class="nav-text">Farm Overview</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💰</span>
+                        <span class="nav-text">Financial Summary</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📋</span>
+                        <span class="nav-text">Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text">User Management</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        <span class="nav-text">Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🆘</span>
+                    <span class="nav-text">Support</span>
+                </a>
+            </div>
+        </nav>
 
-      <div class="top-buttons container-s">
-        <ul class="menu-list">
-          <li>Add Entry</li>
-          <li>Update Entry</li>
-          <li>Delete Entry</li>
-          <li>View Entries</li>
-          <li>View Orders</li>
-          <li>Payment History</li>
-        </ul>
-        <button id="reveal-menu">^</button>
-      </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <div class="greeting">
+                        <h1>Owner Dashboard 👤</h1>
+                        <p class="subtitle">Oversee your entire dairy business operations</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span id="currentDate">Thur, 16th April, 2020</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40x40/87CEEB/FFFFFF?text=O" alt="Owner" class="profile-avatar">
+                    </div>
+                </div>
+            </header>
 
-      <div class="container-details add-details container-s displayNone">
-        <h2>Add Details</h2>
-        <input class="add-fields" type="number" placeholder="Farmer ID"></input>
-        <input class="add-fields" type="number" placeholder="Quantity in Litre"></input>
-        <input class="add-fields" type="number" placeholder="Fat Percentage"></input>
-        <input class="add-fields" type="number" placeholder="Lactose Percentage"></input>
-        <button type="button" class="container-btn entryBtns">Add Entry</button>
-      </div>
+            <!-- Owner Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Key Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">$24,567</div>
+                        <div class="metric-label">Total Revenue</div>
+                        <div class="metric-change">↑ 12% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">1,247</div>
+                        <div class="metric-label">Total Orders</div>
+                        <div class="metric-change">↑ 8% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">89</div>
+                        <div class="metric-label">Active Customers</div>
+                        <div class="metric-change">↑ 15% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">24</div>
+                        <div class="metric-label">Active Farms</div>
+                        <div class="metric-change">↑ 5% from last month</div>
+                    </div>
+                </div>
 
-      <div class="container-details update-details container-s displayNone">
-        <h2>Update Details</h2>
-        <input class="update-fields" type="number" placeholder="Farmer ID to Update"> </input>
-        <input class="update-fields" type="number" placeholder="Farmer ID"></input>
-        <input class="update-fields" type="number" placeholder="Quantity in Litre"></input>
-        <input class="update-fields" type="number" placeholder="Fat Percentage"></input>
-        <input class="update-fields" type="number" placeholder="Lactose Percentage"></input>
-        <button type="button" class="container-btn entryBtns">Update Entry</button>
-      </div>
+                <div class="content-grid">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Business Overview -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Business Overview</h3>
+                                <button class="btn btn-small btn-primary" onclick="refreshBusinessData()">Refresh</button>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <div class="chart-header">
+                                        <h4 class="chart-title">Revenue Trends</h4>
+                                        <div class="chart-filters">
+                                            <button class="filter-btn active" onclick="setChartPeriod('week')">Week</button>
+                                            <button class="filter-btn" onclick="setChartPeriod('month')">Month</button>
+                                            <button class="filter-btn" onclick="setChartPeriod('year')">Year</button>
+                                        </div>
+                                    </div>
+                                    <div class="chart-placeholder">
+                                        📊 Revenue Chart Placeholder
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-      <div class="container-details delete-details container-s displayNone">
-        <h2>Delete Details</h2>
-        <input class="delete-fields" type="number" placeholder="Farmer ID"> </input>
-        <button type="button" class="container-btn entryBtns">Delete Entry</button>
-      </div>
+                        <!-- Farm Performance -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Farm Performance</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Farm Name</th>
+                                                <th>Total Cows</th>
+                                                <th>Daily Production</th>
+                                                <th>Quality Score</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sunny Valley Farm</td>
+                                                <td>24</td>
+                                                <td>580L</td>
+                                                <td>9.2/10</td>
+                                                <td><span class="badge badge-success">Excellent</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Green Pastures</td>
+                                                <td>18</td>
+                                                <td>420L</td>
+                                                <td>8.8/10</td>
+                                                <td><span class="badge badge-success">Good</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Happy Cows Ranch</td>
+                                                <td>32</td>
+                                                <td>750L</td>
+                                                <td>9.0/10</td>
+                                                <td><span class="badge badge-success">Excellent</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>River Valley Dairy</td>
+                                                <td>15</td>
+                                                <td>320L</td>
+                                                <td>8.5/10</td>
+                                                <td><span class="badge badge-warning">Needs Review</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="container-details view-details container-s displayNone">
-        <h2>View Entries</h2>
-        <div id="entries">
-          
-        </div>
-      </div>
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary btn-large" onclick="openModal('addFarmModal')">
+                                        <span>🏭</span>
+                                        Add New Farm
+                                    </button>
+                                    <button class="btn btn-secondary btn-large" onclick="openModal('manageUsersModal')">
+                                        <span>👥</span>
+                                        Manage Users
+                                    </button>
+                                    <button class="btn btn-outline btn-large" onclick="openModal('generateReportModal')">
+                                        <span>📊</span>
+                                        Generate Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
-      <div class="container-details order-details container-s ">
-        <h2>Orders</h2>
-        <div id="orders">
-        </div>
-      </div>
+                        <!-- Financial Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Financial Summary</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="report-section">
+                                    <div>
+                                        <div class="report-item">
+                                            <span class="report-label">Monthly Revenue</span>
+                                            <span class="report-value">$24,567</span>
+                                        </div>
+                                        <div class="report-item">
+                                            <span class="report-label">Monthly Expenses</span>
+                                            <span class="report-value">$18,234</span>
+                                        </div>
+                                        <div class="report-item">
+                                            <span class="report-label">Net Profit</span>
+                                            <span class="report-value">$6,333</span>
+                                        </div>
+                                        <div class="report-item">
+                                            <span class="report-label">Profit Margin</span>
+                                            <span class="report-value">25.8%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- System Alerts -->
+                        <div class="card alert-card">
+                            <div class="card-header">
+                                <h3>System Alerts</h3>
+                                <span class="alert-icon">🔔</span>
+                            </div>
+                            <div class="card-content alert-content">
+                                <div class="alert-message">
+                                    <p><strong>System Status:</strong> All systems operational</p>
+                                    <p>• 3 new farms joined this week</p>
+                                    <p>• 2 farms need quality review</p>
+                                    <p>• Monthly report due in 3 days</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activities -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Recent Activities</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">🏭</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">New farm "Happy Cows Ranch" added</p>
+                                            <p class="activity-time">2 hours ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">📊</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">Monthly performance report generated</p>
+                                            <p class="activity-time">4 hours ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">👥</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">New user account created for retailer</p>
+                                            <p class="activity-time">1 day ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">⚙️</div>
+                                        <div class="activity-content">
+                                            <p class="activity-title">System maintenance completed</p>
+                                            <p class="activity-time">2 days ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    <div class="right-section container-s">
-      <h2>Farmers Entries</h2>
-      <ul class="farmer-entry-menu">
-      </ul>
+
+    <!-- Add Farm Modal -->
+    <div class="modal-overlay" id="addFarmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Farm</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addFarmForm">
+                    <div class="form-group">
+                        <label class="form-label">Farm Name</label>
+                        <input type="text" class="form-input" name="farmName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Owner Name</label>
+                        <input type="text" class="form-input" name="ownerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Farm Size (acres)</label>
+                        <input type="number" class="form-input" name="farmSize" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Number of Cows</label>
+                        <input type="number" class="form-input" name="cowCount" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-input form-textarea" name="address" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="addFarmForm" class="btn btn-primary">Add Farm</button>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Manage Users Modal -->
+    <div class="modal-overlay" id="manageUsersModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Manage Users</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>john@farm.com</td>
+                                <td>Farm Owner</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-outline">Edit</button>
+                                    <button class="btn btn-small btn-danger">Disable</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Johnson</td>
+                                <td>sarah@retail.com</td>
+                                <td>Retailer</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-outline">Edit</button>
+                                    <button class="btn btn-small btn-danger">Disable</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mike Davis</td>
+                                <td>mike@farm.com</td>
+                                <td>Farm Manager</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-outline">Edit</button>
+                                    <button class="btn btn-small btn-success">Approve</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Close</button>
+                <button type="button" class="btn btn-primary" onclick="openModal('addUserModal')">Add New User</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generate Report Modal -->
+    <div class="modal-overlay" id="generateReportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Generate Business Report</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="generateReportForm">
+                    <div class="form-group">
+                        <label class="form-label">Report Type</label>
+                        <select class="form-select" name="reportType" required>
+                            <option value="">Select Report Type</option>
+                            <option value="business-overview">Business Overview</option>
+                            <option value="farm-performance">Farm Performance</option>
+                            <option value="financial-summary">Financial Summary</option>
+                            <option value="user-activity">User Activity</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Report Period</label>
+                        <select class="form-select" name="period" required>
+                            <option value="">Select Period</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="quarter">This Quarter</option>
+                            <option value="year">This Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="customDateRange" style="display: none;">
+                        <label class="form-label">From Date</label>
+                        <input type="date" class="form-input" name="fromDate">
+                        <label class="form-label">To Date</label>
+                        <input type="date" class="form-input" name="toDate">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Format</label>
+                        <select class="form-select" name="format" required>
+                            <option value="">Select Format</option>
+                            <option value="pdf">PDF</option>
+                            <option value="excel">Excel</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button type="submit" form="generateReportForm" class="btn btn-primary">Generate Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Links -->
+    <div class="auth-links">
+        <a href="login.html" class="auth-link">Login</a>
+        <a href="registration.html" class="auth-link">Register</a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/owner.js"></script>
 </body>
-
 </html>

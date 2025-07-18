@@ -1,17 +1,265 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Milk Diary</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Director - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
 </head>
 <body>
-    <h1>Welcome to the Milk Diary App</h1>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🥛</div>
+                    <h2 class="logo-text">Dairy Director</h2>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="farmer.html" class="nav-link">
+                        <span class="nav-icon">👨‍🌾</span>
+                        <span class="nav-text">Farmer Portal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="retailer.html" class="nav-link">
+                        <span class="nav-icon">🏪</span>
+                        <span class="nav-text">Retailer Portal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="owner.html" class="nav-link">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Owner Portal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">💬</span>
+                        <span class="nav-text">Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🆘</span>
+                    <span class="nav-text">Support</span>
+                </a>
+            </div>
+        </nav>
 
-    <button onclick="loadMilkEntries()">Load Milk Entries</button>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <div class="greeting">
+                        <h1>Hello Lucy, 👋</h1>
+                        <p class="subtitle">Take coffee on days ending with "y"</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span id="currentDate">Thur, 16th April, 2020</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40x40/87CEEB/FFFFFF?text=L" alt="User" class="profile-avatar">
+                    </div>
+                </div>
+            </header>
 
-    <button id="sendData">Send Data</button>
-    <div id="output"></div>
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="content-grid">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Record Delivery Button -->
+                        <div class="action-card">
+                            <button class="record-delivery-btn">
+                                <span class="btn-icon">+</span>
+                                <span class="btn-text">Record new Delivery</span>
+                            </button>
+                        </div>
 
-    <script src="/js/script.js"></script>
+                        <!-- Daily Milk Usage -->
+                        <div class="card milk-usage-card">
+                            <div class="card-header">
+                                <h3>Daily milk usage</h3>
+                                <button class="delete-btn">🗑️</button>
+                            </div>
+                            <div class="card-content">
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Whole Milk</span>
+                                        <span class="usage-stats">95 of 135 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">2% Milk</span>
+                                        <span class="usage-stats">168 of 348 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 48%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Skim (Nonfat) Milk</span>
+                                        <span class="usage-stats">93 of 144 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Heavy Cream</span>
+                                        <span class="usage-stats">27 of 51 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 53%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Half and Half</span>
+                                        <span class="usage-stats">41 of 70 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 59%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Soy Milk</span>
+                                        <span class="usage-stats">52 of 84 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 62%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Almond milk</span>
+                                        <span class="usage-stats">14 of 27 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 52%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="usage-item total">
+                                    <div class="usage-info">
+                                        <span class="usage-label">Total Milk Usage</span>
+                                        <span class="usage-stats">376 of 859 gals used</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill total-fill" style="width: 44%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Quick Alerts -->
+                        <div class="card alert-card">
+                            <div class="card-header">
+                                <h3>Quick Alerts</h3>
+                                <span class="alert-icon">⚠️</span>
+                            </div>
+                            <div class="card-content alert-content">
+                                <div class="cow-illustration">🐄</div>
+                                <p class="alert-message">Not to worry! your milk gallons are not running out soon have a nice day</p>
+                            </div>
+                        </div>
+
+                        <!-- Reminders -->
+                        <div class="card reminders-card">
+                            <div class="card-header">
+                                <h3>Reminders</h3>
+                                <span class="reminder-icon">🔔</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="reminder-item">
+                                    <p>Reminder: Record today's milk gallon usage</p>
+                                </div>
+                                <div class="reminder-item">
+                                    <p>New Almond milk Shipment coming in 2 days</p>
+                                </div>
+                                <div class="reminder-item">
+                                    <p>Reminder: Record today's milk gallon usage</p>
+                                </div>
+                                <div class="reminder-item">
+                                    <p>New Almond milk Shipment coming in 2 days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Auth Links -->
+    <div class="auth-links">
+        <a href="login.html" class="auth-link">Login</a>
+        <a href="registration.html" class="auth-link">Register</a>
+    </div>
+
+    <!-- Role Switcher Demo -->
+    <div style="position: fixed; bottom: 20px; left: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000;">
+        <h4 style="margin-bottom: 10px; font-size: 14px;">Demo Role Switcher</h4>
+        <button class="btn btn-small" onclick="switchRole('farmer')">Farmer</button>
+        <button class="btn btn-small" onclick="switchRole('retailer')">Retailer</button>
+        <button class="btn btn-small" onclick="switchRole('owner')">Owner</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Add role switcher functionality
+        function switchRole(role) {
+            if (window.Auth && window.Auth.simulateLogin) {
+                window.Auth.simulateLogin(role);
+            } else {
+                localStorage.setItem('currentUser', JSON.stringify({
+                    userId: 'demo_' + role,
+                    email: role + '@demo.com',
+                    fullName: 'Demo ' + role.charAt(0).toUpperCase() + role.slice(1),
+                    accountType: role
+                }));
+                window.location.href = role + '.html';
+            }
+        }
+    </script>
 </body>
 </html>

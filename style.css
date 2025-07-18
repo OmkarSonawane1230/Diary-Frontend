@@ -1,0 +1,261 @@
+:root {
+    --container-bg: rgba(101, 101, 101, 0.578);
+    --conainter-border: rgba(41, 41, 41, 0.832);
+    --container-button: rgba(0, 170, 185, 0.926);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    user-select: none;
+    padding: 0;
+}
+
+body {
+    font-size: 1.125rem;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    height: 100dvh;
+}
+
+.container-s {
+    background-color: var(--container-bg);
+}
+
+input {
+    padding: 0.4rem;
+    max-width: 250px;
+    border-radius: 5px;
+    border: 1px solid var(--container-button);
+    font-size: 1.125rem;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    cursor: pointer;
+    gap: .5rem;
+    flex-direction: row;
+}
+
+.menu-list li {
+    background-color: var(--container-bg);
+    padding: .5rem;
+    border-radius: 7px;
+}
+
+#reveal-menu {
+    border-radius: 7px;
+    display: none;
+    background-color: blue;
+}
+
+.container-btn {
+    cursor: pointer;
+    font-weight: bolder;
+    padding: 1rem;
+    max-width: 250px;
+    border-radius: 7px;
+    border: 1px solid var(--container-button);
+    font-size: 1.125rem;
+}
+
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+.left-section {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 280px;
+}
+
+.top-buttons {
+    border-radius: 16px;
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    transition: height 1s linear;
+}
+
+.container-details {
+    height: calc(100dvh - 100px);
+    overflow-y: scroll;
+    /* sky-400 */
+    border-radius: 16px;
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 280px;
+}
+
+.container-details h2 {
+    font-weight: 800;
+    margin: 0;
+}
+
+.right-section {
+    /* sky-400 */
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 280px;
+}
+
+.right-section h2 {
+    font-weight: 800;
+    font-size: 1.125em;
+    margin: 0;
+}
+
+.right-section {
+    /* green-500 */
+    border: none;
+    border-radius: 16px;
+    padding: 16px 32px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    min-width: 450px;
+}
+
+.entry {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.details {
+    display: none;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.entry-header {
+    font-weight: bold;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.farmer-entry-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.farmer-entry-menu li {
+    background-color: var(--container-bg);
+    padding: .5rem;
+    border-radius: 7px;
+}
+
+
+.innerBox {
+    background: var(--container-bg);
+    cursor: pointer;;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center ;
+    justify-content: center ;
+    
+}
+
+/* .entry2 {
+    display: flex;
+    border: 1px solid black;
+    align-items: center;;
+    column-gap: 5em;
+    justify-content: space-between;
+    padding: 10px;
+} */
+
+.orders {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+
+.orderEntry {
+    width: 200px;
+    height: 200px;
+    border:1px solid  grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+@media (max-width: 770px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+
+    .container-details button,
+    .container-details .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1142px) {
+    .top-buttons {
+        position: relative;
+        padding-top: 50px;
+        height: 40px;
+        overflow: hidden;
+        justify-content: space-between;
+        transition: height 0.3s ease-in;
+    }
+
+    .menu-list {
+        display: flex;
+        width: 100%;
+        gap: .4rem;
+        visibility: hidden;
+        flex-direction: column;
+    }
+
+    #reveal-menu {
+        top: 0.8rem;
+        right: 0.5rem;
+        position: absolute;
+        display: block;
+        padding: .5rem;
+    }
+}
+
+.extendM {
+    height: 312px;
+}
+
+.showM {
+    visibility: visible;
+}
+
+.displayNone {
+    display: none;
+}

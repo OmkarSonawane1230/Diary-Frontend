@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farmers Entries</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-section">
+
+      <div class="top-buttons container-s">
+        <ul class="menu-list">
+          <li>Add Entry</li>
+          <li>Update Entry</li>
+          <li>Delete Entry</li>
+          <li>View Entries</li>
+          <li>View Orders</li>
+          <li>Payment History</li>
+        </ul>
+        <button id="reveal-menu">^</button>
+      </div>
+
+      <div class="container-details add-details container-s displayNone">
+        <h2>Add Details</h2>
+        <input class="add-fields" type="number" placeholder="Farmer ID"></input>
+        <input class="add-fields" type="number" placeholder="Quantity in Litre"></input>
+        <input class="add-fields" type="number" placeholder="Fat Percentage"></input>
+        <input class="add-fields" type="number" placeholder="Lactose Percentage"></input>
+        <button type="button" class="container-btn entryBtns">Add Entry</button>
+      </div>
+
+      <div class="container-details update-details container-s displayNone">
+        <h2>Update Details</h2>
+        <input class="update-fields" type="number" placeholder="Farmer ID to Update"> </input>
+        <input class="update-fields" type="number" placeholder="Farmer ID"></input>
+        <input class="update-fields" type="number" placeholder="Quantity in Litre"></input>
+        <input class="update-fields" type="number" placeholder="Fat Percentage"></input>
+        <input class="update-fields" type="number" placeholder="Lactose Percentage"></input>
+        <button type="button" class="container-btn entryBtns">Update Entry</button>
+      </div>
+
+      <div class="container-details delete-details container-s displayNone">
+        <h2>Delete Details</h2>
+        <input class="delete-fields" type="number" placeholder="Farmer ID"> </input>
+        <button type="button" class="container-btn entryBtns">Delete Entry</button>
+      </div>
+
+      <div class="container-details view-details container-s displayNone">
+        <h2>View Entries</h2>
+        <div id="entries">
+          
+        </div>
+      </div>
+
+      <div class="container-details order-details container-s ">
+        <h2>Orders</h2>
+        <div id="orders">
+        </div>
+      </div>
+
+    </div>
+    <div class="right-section container-s">
+      <h2>Farmers Entries</h2>
+      <ul class="farmer-entry-menu">
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

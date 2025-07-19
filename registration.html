@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
 </head>
+
 <body>
     <div class="auth-container">
         <div class="auth-card">
@@ -15,53 +17,44 @@
                 <h1 class="auth-title">Create Account</h1>
                 <p class="auth-subtitle">Join Dairy Director and manage your dairy business</p>
             </div>
-            
+
             <form class="auth-form" id="registrationForm">
                 <div class="form-group">
-                    <label class="form-label">Full Name</label>
-                    <input type="text" class="form-input" name="fullName" placeholder="Enter your full name" required>
+                    <label class="form-label">Account Type</label>
+                    <div class="form-select">
+                        <div class="form-select-options">
+                            <input type="radio" id="userType1" name="userType" value="farmer" required/>
+                            <label for="userType1">Farmer</label>
+                        </div>
+                        <div class="form-select-options">
+                            <input type="radio" id="userType2" name="userType" value="retailer" required/>
+                            <label for="userType2">Retailer</label>
+                        </div>
+                        <div class="form-select-options">
+                            <input type="radio" id="userType3" name="userType" value="owner" required/>
+                            <label for="userType3">Business</label>
+                        </div>
+                    </div>
                 </div>
-                
+
                 <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+                    <label class="form-label">User Name</label>
+                    <input type="text" class="form-input" name="username" placeholder="Enter your username" required>
                 </div>
-                
+<!-- 
                 <div class="form-group">
                     <label class="form-label">Phone Number</label>
                     <input type="tel" class="form-input" name="phone" placeholder="Enter your phone number" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Account Type</label>
-                    <select class="form-select" name="accountType" required>
-                        <option value="">Select Account Type</option>
-                        <option value="farmer">Farm Owner</option>
-                        <option value="retailer">Retailer</option>
-                        <option value="owner">Business Owner</option>
-                    </select>
-                </div>
-                
+                </div> -->
+
                 <div class="form-group">
                     <label class="form-label">Password</label>
                     <input type="password" class="form-input" name="password" placeholder="Create a password" required>
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-input" name="confirmPassword" placeholder="Confirm your password" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-checkbox">
-                        <input type="checkbox" name="terms" required>
-                        <span>I agree to the <a href="#" onclick="showTerms()">Terms of Service</a> and <a href="#" onclick="showPrivacy()">Privacy Policy</a></span>
-                    </label>
-                </div>
-                
+
                 <button type="submit" class="btn btn-primary btn-large w-full">Create Account</button>
             </form>
-            
+
             <div class="auth-footer">
                 <p class="auth-link-text">
                     Already have an account? <a href="login.html">Sign in here</a>
@@ -70,40 +63,8 @@
         </div>
     </div>
 
-    <!-- Terms Modal -->
-    <div class="modal-overlay" id="termsModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Terms of Service</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div style="max-height: 400px; overflow-y: auto;">
-                    <h4>Terms of Service</h4>
-                    <p>Welcome to Dairy Director. By using our service, you agree to these terms:</p>
-                    <ul>
-                        <li>Use the platform for legitimate dairy business purposes only</li>
-                        <li>Maintain accurate and up-to-date information</li>
-                        <li>Respect the privacy and data of other users</li>
-                        <li>Comply with all applicable laws and regulations</li>
-                    </ul>
-                    <h4>Privacy Policy</h4>
-                    <p>We collect and use your information to:</p>
-                    <ul>
-                        <li>Provide and improve our services</li>
-                        <li>Communicate with you about your account</li>
-                        <li>Ensure the security of our platform</li>
-                        <li>Comply with legal requirements</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="closeModal()">I Understand</button>
-            </div>
-        </div>
-    </div>
-
     <script src="js/main.js"></script>
     <script src="js/auth.js"></script>
 </body>
+
 </html>

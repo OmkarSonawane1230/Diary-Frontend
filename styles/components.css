@@ -815,12 +815,21 @@
         grid-template-columns: 1fr;
     }
     
-    .auth-card {
-        padding: 24px;
-    }
-    
     .chart-filters {
         flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 500px) {
+    .auth-container {
+        padding: 0;
+    }
+    
+    .auth-card {
+        padding: 24px;
+        border-radius: 0;
+        height: 100dvh;
+        width: 100%;
     }
 }
 

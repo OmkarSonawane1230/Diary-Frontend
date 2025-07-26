@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Director - Farmer Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">🥛</div>
+                    <h2 class="logo-text">Dairy Director</h2>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">🏦</span>
+                        <span class="nav-text">Bank Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">🐄</span>
+                        <span class="nav-text">Cow Mangement</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">🏥</span>
+                        <span class="nav-text">Health Records</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">🌾</span>
+                        <span class="nav-text">Feed Records</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">🤖</span>
+                        <span class="nav-text">AI Recommendation</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Personal Info</span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                    <div class="greeting">
+                        <h1>Farmer Dashboard 👨‍🌾</h1>
+                        <p class="subtitle">Manage your dairy farm operations</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="date-display">
+                        <span id="currentDate">Thur, 16th April, 2020</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="" alt="Farmer" class="profile-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Farmer Dashboard Content -->
+            <div class="dashboard-content nav-body">
+                <!-- Milk record -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Milk Record</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Farmer ID</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                        <!-- <th>Farmer Name</th> -->
+                                        <!-- <th>Status</th>
+                                        <th>Daily Milk (L)</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="farmerEntries">
+                                    <!--                                     <tr>
+                                        <td>#001</td>
+                                        <td>Bessie</td>
+                                        <td>Holstein</td>
+                                        <td>4 years</td>
+                                        <td><span class="badge badge-success">Healthy</span></td>
+                                        <td>28.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#002</td>
+                                        <td>Daisy</td>
+                                        <td>Jersey</td>
+                                        <td>3 years</td>
+                                        <td><span class="badge badge-success">Healthy</span></td>
+                                        <td>22.3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#003</td>
+                                        <td>Moobert</td>
+                                        <td>Guernsey</td>
+                                        <td>5 years</td>
+                                        <td><span class="badge badge-warning">Check-up Due</span></td>
+                                        <td>25.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#004</td>
+                                        <td>Bella</td>
+                                        <td>Holstein</td>
+                                        <td>2 years</td>
+                                        <td><span class="badge badge-success">Healthy</span></td>
+                                        <td>30.2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#005</td>
+                                        <td>Luna</td>
+                                        <td>Jersey</td>
+                                        <td>6 years</td>
+                                        <td><span class="badge badge-danger">Needs Attention</span></td>
+                                        <td>18.7</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bankdetail-content nav-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Bank Details</h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="bankDetailsForm" autocomplete="off">
+                            <div class="form-group">
+                                <label for="farmerPhone" class="form-label">Phone Number</label>
+                                <input type="tel" id="farmerPhone" name="farmerPhone" class="form-input" required
+                                    placeholder="e.g. 9876543210" pattern="[0-9]{10}">
+                            </div>
+                            <div class="form-group">
+                                <label for="accountHolder" class="form-label">Account Holder Name</label>
+                                <input type="text" id="accountHolder" name="accountHolder" class="form-input" required
+                                    placeholder="e.g. Ramesh Kumar">
+                            </div>
+                            <div class="form-group">
+                                <label for="bankName" class="form-label">Bank Name</label>
+                                <input type="text" id="bankName" name="bankName" class="form-input" required
+                                    placeholder="e.g. State Bank of India">
+                            </div>
+                            <div class="form-group">
+                                <label for="accountNumber" class="form-label">Account Number</label>
+                                <input type="text" id="accountNumber" name="accountNumber" class="form-input" required
+                                    placeholder="e.g. 1234567890">
+                            </div>
+                            <div class="form-group">
+                                <label for="ifsc" class="form-label">IFSC Code</label>
+                                <input type="text" id="ifsc" name="ifsc" class="form-input" required
+                                    placeholder="e.g. SBIN0001234">
+                            </div>
+                            <div class="form-buttons d-flex justify-between">
+                                <button type="submit" class="btn btn-primary">Save Details</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cow-mangement nav-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Cow Mangement</h3>
+                    </div>
+                    <div class="card-content">
+                        <form autocomplete="off" id="cowManagement">
+                            <div class="form-group">
+                                <label for="farmerId" class="form-label">Farmer ID</label>
+                                <input type="text" id="farmerId" class="form-input" required placeholder="e.g 101">
+                            </div>
+                            <div class="form-group">
+                                <label for="cowId" class="form-label">Cow ID</label>
+                                <input type="text" id="cowId" class="form-input" id="cowId" required
+                                    placeholder="e.g c123">
+                            </div>
+                            <div class="form-group">
+                                <label for="breed" class="form-label">breed</label>
+                                <input type="text" id="breed" class="form-input" required placeholder="e.g Jersey">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate" class="form-label">Birth Date</label>
+                                <input type="date" id="birthDate" class="form-input" required
+                                    placeholder="e.g 20-03-2000">
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="form-label">Status</label>
+                                <input type="text" class="form-input" id="status" required placeholder="e.g active">
+                            </div>
+                            <div class="form-buttons d-flex justify-between">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="health-records nav-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Health Records</h3>
+                    </div>
+                    <div class="card-content">
+                        <form action="" id="healthRecords" autocomplete="off">
+                            <div class="form-group">
+                                <label for="cowId" class="form-label">Cow ID</label>
+                                <input type="text" name="cowId" id="cowId" class="form-input" required
+                                    placeholder="e.g cow000, buf000">
+                            </div>
+                            <div class="form-group">
+                                <label for="healthScore" class="form-label">Health Score</label>
+                                <input type="text" id="healthScore" class="form-input" placeholder="e.g 9.4, 5.3"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="symptoms" class="form-label">Symptoms</label>
+                                <input type="text" class="form-input" id="symptoms" placeholder="e.g fever, none"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="temperature" class="form-label">Temperature In Celcius</label>
+                                <input type="text" class="form-input" id="temperatureInC" placeholder="e.g 33 "
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="treatmentGiven" class="form-label">Treatment Given</label>
+                                <input type="text" id="treatmentGiven" class="form-input" placeholder="e.g calcium"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="vetName" class="form-label">Vet Name</label>
+                                <input type="text" id="vetName" class="form-input" placeholder="e.g Dr. Singh" required>
+                            </div>
+                            <div class="form-buttons d-flex justify-between">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feed-records nav-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Feed Records</h3>
+                    </div>
+                    <div class="card-content">
+                        <form action="" id="feedRecords" autocomplete="off">
+                            <div class="form-group">
+                                <label for="cowId" class="form-label">Cow ID</label>
+                                <input type="text" name="cowId" id="cowId" class="form-input" required
+                                    placeholder="e.g cow000, buf000">
+                            </div>
+                            <div class="form-group">
+                                <label for="feedCost" class="form-label">Feed Cost</label>
+                                <input type="text" id="feedCost" class="form-input" placeholder="e.g 30 20" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedType" class="form-label">Feed Type</label>
+                                <input type="text" class="form-input" id="feedType" placeholder="e.g grass, corn"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="waterInLiter" class="form-label">Water In Liter</label>
+                                <input type="text" class="form-input" id="waterInLiter" placeholder="e.g 33" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedQuantityInKg" class="form-label">Feed Quantity In Kg</label>
+                                <input type="text" id="feedQuantityInKg" class="form-input" placeholder="e.g 5"
+                                    required>
+                            </div>
+                            <div class="form-buttons d-flex justify-between">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-recommendation nav-body">
+                <div class="card ai-card">
+                    <div class="card-header ai-header">
+                        <h3><span class="ai-icon">🤖</span> AI-Driven Dairy Management</h3>
+
+
+                    </div>
+                    <div class="card-content ai-content">
+                        <form action="" id="aiRecommendationForm" autocomplete="off">
+
+                            <div class="form-group">
+                                <label for="farmerId" class="form-label">Farmer ID</label>
+                                <input type="text" id="farmerId" class="form-input" required placeholder="e.g 101">
+                            </div>
+                            <div class="form-group">
+                                <label for="cowId" class="form-label">Cow ID</label>
+                                <input type="text" name="cowId" id="cowId" class="form-input" required
+                                    placeholder="e.g cow000, buf000">
+                            </div>
+                            <div class="form-buttons d-flex justify-between">
+                                <button type="submit" class="btn btn-primary" id="getRecommendationBtn">Get AI
+                                    Recommendation</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="personalinfo-content nav-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Personal Information</h3>
+                    </div>
+                    <div class="card-content">
+                        <form id="personalInfoForm" autocomplete="off">
+                            <div class="form-group">
+                                <label for="farmerName" class="form-label">Full Name</label>
+                                <input type="text" id="farmerName" name="farmerName" class="form-input" required
+                                    placeholder="e.g. Ramesh Kumar">
+                            </div>
+                            <div class="form-group">
+                                <label for="phonenumber" class="form-label">Phone Number</label>
+                                <input type="text" id="phonenumber" name="phonenumber" class="form-input" required
+                                    placeholder="e.g. 9998776667" pattern="[0-9 ]{12,14}">
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhaar" class="form-label">Aadhaar Number</label>
+                                <input type="text" id="aadhaar" name="aadhaar" class="form-input" required
+                                    placeholder="e.g. 1234 5678 9012" pattern="[0-9 ]{12,14}">
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea id="address" name="address" class="form-input" rows="3" required
+                                    placeholder="Enter your address"></textarea>
+                            </div>
+                            <div class="form-buttons d-flex justify-between">
+                                <button type="submit" class="btn btn-primary">Save Info</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/farmer.js"></script>
+</body>
+
+</html>

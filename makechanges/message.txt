@@ -1,0 +1,55 @@
+hey 
+make changes in farmer.html and farmer.js also if needed in css
+{
+    "data": {
+        "predictedMilkYield": 5.3,
+        "feedType": "High-Quality Grass",
+        "feedQuantityKg": 2.65,
+        "feedCost": 32.0,
+        "waterRecommendation": 25.0,
+        "predictedProfit": 233.0,
+        "healthScoreRecommendation": "Maintain health score above 9.0; closely monitor temperature and overall well-being. Continue routine check-ups and nutrient support.",
+        "predictionDate": "2025-07-15",
+        "routine": {
+            "title": "Optimizing Milk Yield and Profit for COW001",
+            "steps": [
+                {
+                    "step_number": 1,
+                    "category": "Nutrition",
+                    "action": "Continue providing high-quality forage such as Grass. Ensure the feed is fresh and free from contaminants. Given the cow responded well to Grass, aim to provide 2.65 kg of high-nutrient grass daily.",
+                    "details": "A slight increase in quality feed can support higher milk production without significantly increasing costs relative to yield. Consider supplementing with essential minerals if grass quality varies."
+                },
+                {
+                    "step_number": 2,
+                    "category": "Hydration",
+                    "action": "Ensure constant access to fresh, clean water. The cow's water intake directly correlates with milk production. Provide at least 25 liters per day, or allow free access to ensure adequate hydration.",
+                    "details": "Monitor water trough cleanliness daily. Dehydration can quickly impact milk yield and overall health. Consider adding electrolytes during warmer periods."
+                },
+                {
+                    "step_number": 3,
+                    "category": "Health Monitoring",
+                    "action": "Maintain a proactive health monitoring approach. Aim to keep the health score at 9.0 or above. Regularly check the cow's temperature (especially as it has fluctuated recently), appetite, and behavior.",
+                    "details": "The recent dip to an 8.5 health score, while still good, warrants attention. Continue with routine veterinary checks and targeted nutrient boosters/vitamin shots as per vet's advice to maintain peak health. Any persistent temperature above 38.5°C or below 38.0°C should be reported to the vet."
+                },
+                {
+                    "step_number": 4,
+                    "category": "Environment & Comfort",
+                    "action": "Ensure a comfortable, clean, and stress-free environment for the cow. This includes adequate bedding, proper ventilation, and protection from extreme weather.",
+                    "details": "Comfort directly impacts cow well-being and milk production. Minimize stressors, such as loud noises, sudden movements, or overcrowding."
+                },
+                {
+                    "step_number": 5,
+                    "category": "Milking Practices",
+                    "action": "Maintain a consistent milking schedule. Ensure proper udder hygiene before and after milking to prevent mastitis and other udder health issues.",
+                    "details": "Consistency helps establish a routine for the cow, reducing stress and promoting milk let-down. Proper hygiene safeguards milk quality and cow health."
+                }
+            ]
+        }
+    },
+    "message": "Prediction successfully generated."
+}
+
+this is an ai response for farmer i want to display it in proper way so 
+such as spearate container for each steps having more div in action, category, details etc,
+so it will display properly
+
